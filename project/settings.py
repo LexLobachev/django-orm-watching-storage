@@ -1,21 +1,22 @@
 import os
+from decouple import config
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': '',
-        'PORT': '',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'HOST': 'checkpoint.devman.org',
+        'PORT': '5434',
+        'NAME': 'checkpoint',
+        'USER': 'guard',
+        'PASSWORD': 'osim5',
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ROOT_URLCONF = 'project.urls'
 
@@ -36,7 +37,7 @@ USE_L10N = True
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Europe/Samara'
 
 USE_TZ = True
 
