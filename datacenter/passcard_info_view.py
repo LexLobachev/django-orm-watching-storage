@@ -11,10 +11,8 @@ def passcard_info_view(request, passcode):
     for visit in visits:
         duration = get_duration(visit)
 
-        entered_at = localtime(visit.entered_at).strftime("%d %B %Y г. %H:%M")
-
         this_passcard_visits_data = {
-            'entered_at': entered_at,
+            'entered_at': visit.entered_at,
             'duration': duration,
             'is_strange': is_visit_long(visit)
         }

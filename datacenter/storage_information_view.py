@@ -12,11 +12,9 @@ def storage_information_view(request):
         duration = get_duration_till_now(visit)
         formatted_duration = format_duration(duration)
 
-        entered_at = localtime(visit.entered_at).strftime("%d %B %Y г. %H:%M")
-
         non_closed_visits_data = {
             'who_entered': visit.passcard,
-            'entered_at': entered_at,
+            'entered_at': visit.entered_at,
             'duration': formatted_duration,
         }
 
