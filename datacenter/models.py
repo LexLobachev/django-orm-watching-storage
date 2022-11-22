@@ -46,9 +46,7 @@ def get_duration_till_now(visit):
 
 
 def is_visit_long(visit, minutes=60):
-    if get_duration(visit).seconds // 60 > minutes:
-        return True
-    return False
+    return get_duration(visit).seconds // 60 > minutes
 
 
 def format_duration(duration):
