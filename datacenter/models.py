@@ -50,6 +50,6 @@ def is_visit_long(visit, minutes=60):
 
 
 def format_duration(duration):
-    formatted_duration = str(duration)[:5]
+    formatted_duration = f"{duration.seconds // 3600}ч {duration.seconds % 3600 // 60}мин"
     return formatted_duration
 
