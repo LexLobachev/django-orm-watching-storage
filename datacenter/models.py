@@ -46,10 +46,10 @@ def get_duration_till_now(visit):
 
 
 def is_visit_long(visit, minutes=60):
-    return get_duration(visit).total_seconds // 60 > minutes
+    return get_duration(visit).total_seconds() // 60 > minutes
 
 
 def format_duration(duration):
-    formatted_duration = f"{duration.total_seconds // 3600}ч {duration.total_seconds % 3600 // 60}мин"
+    formatted_duration = f"{round(duration.total_seconds() / 3600)}ч {round(duration.total_seconds() % 3600 / 60)}мин"
     return formatted_duration
 

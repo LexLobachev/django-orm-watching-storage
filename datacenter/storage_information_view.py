@@ -1,4 +1,4 @@
-from datacenter.models import Visit, get_duration_till_now, format_duration
+from datacenter.models import Visit, get_duration, format_duration
 from django.shortcuts import render
 
 from django.utils.timezone import localtime
@@ -9,7 +9,7 @@ def storage_information_view(request):
 
     non_closed_visits = []
     for visit in visits:
-        duration = get_duration_till_now(visit)
+        duration = get_duration(visit)
         formatted_duration = format_duration(duration)
 
         non_closed_visits_data = {
