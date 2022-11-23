@@ -39,12 +39,6 @@ def get_duration(visit):
     return time_dif
 
 
-def get_duration_till_now(visit):
-    enter_time = localtime(visit.entered_at)
-    time_dif = datetime.now(timezone.utc) - enter_time
-    return time_dif
-
-
 def is_visit_long(visit, minutes=60):
     return get_duration(visit).total_seconds() // 60 > minutes
 
@@ -52,4 +46,3 @@ def is_visit_long(visit, minutes=60):
 def format_duration(duration):
     formatted_duration = f"{round(duration.total_seconds() / 3600)}ч {round(duration.total_seconds() % 3600 / 60)}мин"
     return formatted_duration
-

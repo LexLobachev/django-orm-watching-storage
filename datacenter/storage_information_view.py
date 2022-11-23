@@ -1,8 +1,6 @@
 from datacenter.models import Visit, get_duration, format_duration
 from django.shortcuts import render
 
-from django.utils.timezone import localtime
-
 
 def storage_information_view(request):
     visits = Visit.objects.filter(leaved_at=None)
