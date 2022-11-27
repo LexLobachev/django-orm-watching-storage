@@ -1,26 +1,26 @@
 import os
-from decouple import config
+from decouple import config, Csv
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'NAME': config('POSTGRES_NAME', default='checkpoint'),
+        'USER': config('POSTGRES_USER', default='guard'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='osim5'),
+        'HOST': config('POSTGRES_HOST', default='checkpoint.devman.org'),
+        'PORT': config('POSTGRES_PORT', default='5434'),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default='default_secret_key_not_secure')
 
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='localhost')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
